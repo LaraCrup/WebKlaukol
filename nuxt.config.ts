@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/fonts',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase',
   ],
   supabase: {
     redirect: false,
