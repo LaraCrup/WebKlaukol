@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+sitemap: https://en-busca-del-colocador-klaukol.com.ar/sitemap.xml
