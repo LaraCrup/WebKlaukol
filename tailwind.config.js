@@ -1,7 +1,9 @@
 export default {
     theme: {
         extend: {
-            colors: {}
+            colors: {
+                error: "#ff0000",
+            }
         }
     }
 }

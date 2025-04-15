@@ -1,3 +1,4 @@
 <template>
-    <h1>Index</h1>
+    <h1 class="text-xl">Index</h1>
+    <FormParticipante />
 </template>

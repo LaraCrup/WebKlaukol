@@ -20,8 +20,17 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
-  // Fonts
-  // Icon
+  fonts: {
+    defaults: {
+      weights: [300, 400, 500, 600, 700, 800],
+    }
+  },
+  icon: {
+    size: '1rem',
+    serverBundle: {
+      collections: ['material-symbols'],
+    }
+  },
   // App
   site: {
     url: 'https://en-busca-del-colocador-klaukol.com.ar/',
