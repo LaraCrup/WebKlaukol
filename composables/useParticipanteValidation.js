@@ -1,7 +1,7 @@
 import { useParticipanteService } from './useParticipanteService';
 
 export const useParticipanteValidation = () => {
-    const { checkEmailExists } = useParticipanteService();
+    const { checkMailExists } = useParticipanteService();
 
     const validateNombre = (value, errors) => {
         if (!value || value.trim() === '') {
@@ -29,16 +29,6 @@ export const useParticipanteValidation = () => {
         }
     };
 
-    const validateCiudad = (value, errors) => {
-        if (!value) {
-            errors.ciudad = 'Debe seleccionar una ciudad';
-            return false;
-        } else {
-            errors.ciudad = null;
-            return true;
-        }
-    };
-
     const validateTelefono = (value, errors) => {
         if (!value || value.trim() === '') {
             errors.telefono = 'El teléfono es obligatorio';
@@ -52,27 +42,37 @@ export const useParticipanteValidation = () => {
         }
     };
 
-    const validateEmail = async (value, errors, checkDuplicate = true) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validateMail = async (value, errors, checkDuplicate = true) => {
+        const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!value || value.trim() === '') {
-            errors.email = 'El email es obligatorio';
+            errors.mail = 'El mail es obligatorio';
             return false;
-        } else if (!emailRegex.test(value)) {
-            errors.email = 'El email no es válido';
+        } else if (!mailRegex.test(value)) {
+            errors.mail = 'El mail no es válido';
             return false;
         }
 
         if (checkDuplicate) {
-            const exists = await checkEmailExists(value.trim().toLowerCase());
+            const exists = await checkMailExists(value.trim().toLowerCase());
             if (exists) {
-                errors.email = 'Este email ya está registrado';
+                errors.mail = 'Este mail ya está registrado';
                 return false;
             }
         }
 
-        errors.email = null;
+        errors.mail = null;
         return true;
+    };
+
+    const validateCiudad = (value, errors) => {
+        if (!value) {
+            errors.ciudad = 'Debe seleccionar una ciudad';
+            return false;
+        } else {
+            errors.ciudad = null;
+            return true;
+        }
     };
 
     const validateOficio = (value, errors) => {
@@ -95,17 +95,17 @@ export const useParticipanteValidation = () => {
         }
     };
 
-    const validateForm = async (form, errors, checkEmailDuplicate = true) => {
+    const validateForm = async (form, errors, checkMailDuplicate = true) => {
         const validNombre = validateNombre(form.nombre, errors);
         const validApellido = validateApellido(form.apellido, errors);
         const validCiudad = validateCiudad(form.ciudad, errors);
         const validTelefono = validateTelefono(form.telefono, errors);
-        const validEmail = await validateEmail(form.email, errors, checkEmailDuplicate);
+        const validMail = await validateMail(form.mail, errors, checkMailDuplicate);
         const validOficio = validateOficio(form.oficio, errors);
         const validTerminos = validateTerminos(form.terminos, errors);
 
         return validNombre && validApellido && validCiudad &&
-            validTelefono && validEmail && validOficio && validTerminos;
+            validTelefono && validMail && validOficio && validTerminos;
     };
 
     const clearErrors = (errors) => {
@@ -113,7 +113,7 @@ export const useParticipanteValidation = () => {
         errors.apellido = null;
         errors.ciudad = null;
         errors.telefono = null;
-        errors.email = null;
+        errors.mail = null;
         errors.oficio = null;
         errors.terminos = null;
     };
@@ -123,7 +123,7 @@ export const useParticipanteValidation = () => {
         validateApellido,
         validateCiudad,
         validateTelefono,
-        validateEmail,
+        validateMail,
         validateOficio,
         validateTerminos,
         validateForm,

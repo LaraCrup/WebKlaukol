@@ -35,7 +35,7 @@ export const useSupabaseCache = () => {
                 access_token: session.access_token,
                 expires_at: session.expires_at,
                 user_id: session.user.id,
-                email: session.user.email
+                mail: session.user.mail
             };
 
             const ttlMinutes = (session.expires_at - Math.floor(Date.now() / 1000)) / 60 * 0.9;

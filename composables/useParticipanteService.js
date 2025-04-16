@@ -8,7 +8,7 @@ export const useParticipanteService = () => {
     const createParticipante = async (participanteData) => {
         try {
             const { data, error } = await supabase
-                .from('participantes')
+                .from('participantes_klaukol')
                 .insert(participanteData)
                 .select()
                 .single();
@@ -24,18 +24,18 @@ export const useParticipanteService = () => {
         }
     };
 
-    const checkEmailExists = async (email) => {
+    const checkMailExists = async (mail) => {
         try {
             const { data, error, count } = await supabase
-                .from('participantes')
+                .from('participantes_klaukol')
                 .select('*', { count: 'exact', head: true })
-                .eq('email', email);
+                .eq('mail', mail);
 
             if (error) throw error;
 
             return count > 0;
         } catch (error) {
-            console.error('Error al verificar email:', error);
+            console.error('Error al verificar mail:', error);
             return false;
         }
     };
@@ -46,16 +46,14 @@ export const useParticipanteService = () => {
             apellido: formData.apellido.trim(),
             ciudad_id: formData.ciudad,
             telefono: formData.telefono.trim(),
-            email: formData.email.trim().toLowerCase(),
+            mail: formData.mail.trim().toLowerCase(),
             oficio_id: formData.oficio,
-            acepto_terminos: formData.terminos,
-            fecha_registro: new Date().toISOString()
         };
     };
 
     return {
         createParticipante,
-        checkEmailExists,
+        checkMailExists,
         prepareParticipanteData
     };
 };
