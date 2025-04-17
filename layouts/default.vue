@@ -1,10 +1,7 @@
 <template>
     <DefaultHeader />
-    <!-- <DefaultMain>
-        <DefaultSection>
-            <slot />
-        </DefaultSection>
-    </DefaultMain> -->
-    <slot />
+    <DefaultMain>
+        <slot />
+    </DefaultMain>
     <DefaultFooter />
 </template>

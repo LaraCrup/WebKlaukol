@@ -9,7 +9,8 @@ export default {
         },
         extend: {
             colors: {
-                error: "#ff0000",
+                primary: "#E73731",
+                gray: "#616161",
             }
         }
     }

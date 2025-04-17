@@ -4,20 +4,19 @@
         <div class="relative">
             <div class="relative">
                 <button type="button" :id="id" @click="toggleDropdown"
-                    class="w-full border rounded-md p-2 pl-10 text-left flex justify-between items-center">
-                    <span v-if="selectedLabel">{{ selectedLabel }}</span>
-                    <span v-else class="text-gray-400">{{ placeholder }}</span>
-                    <Icon name="material-symbols:arrow-drop-down" class="text-gray-500" />
+                    class="w-full flex items-center justify-between border-2 border-primary rounded-[9px] outline-none p-[0.65rem] pl-9">
+                    <span v-if="selectedLabel" class="text-sm">{{ selectedLabel }}</span>
+                    <span v-else class="text-gray text-sm">{{ placeholder }}</span>
+                    <Icon name="material-symbols:keyboard-arrow-down-rounded" size="1.5rem" class="text-primary self-end" />
                 </button>
-                <div v-if="icon" class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <Icon :name="`material-symbols:${icon}`" class="text-gray-500" />
+                <div v-if="icon" class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                    <Icon :name="`material-symbols:${icon}`" size="1.5rem" class="text-gray" />
                 </div>
 
-                <!-- Opciones del dropdown -->
                 <div v-if="isOpen"
-                    class="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg max-h-60 overflow-auto">
+                    class="w-full absolute z-10 bg-white border-2 border-primary rounded-md shadow-md overflow-auto mt-1">
                     <div v-for="option in options" :key="getOptionValue(option)" @click="selectOption(option)"
-                        class="p-2 hover:bg-gray-100 cursor-pointer">
+                        class="p-2 hover:text-primary transition-all duration-300 cursor-pointer">
                         {{ getOptionLabel(option) }}
                     </div>
                 </div>

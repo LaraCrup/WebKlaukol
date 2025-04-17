@@ -1,38 +1,47 @@
 <template>
-    <form @submit.prevent="handleSubmit" class="w-full max-w-2xl mx-auto space-y-4">
-        <FormTextField v-for="field in textFields" :key="field.id" v-bind="field" v-model="form[field.model]"
-            :error="showErrors ? errors[field.model] : null" />
+    <form @submit.prevent="handleSubmit" class="w-full flex flex-col gap-2">
+        <FormTextField id="nombre" label="Nombre" v-model="form.nombre" icon="account-circle-full" placeholder="Nombre"
+            :error="showErrors ? errors.nombre : null" />
+
+        <FormTextField id="apellido" label="Apellido" v-model="form.apellido" icon="account-circle-full"
+            placeholder="Apellido" :error="showErrors ? errors.apellido : null" />
+
+        <FormSelectField id="ciudad" label="Ciudad" v-model="form.ciudad" :options="ciudadesFormateadas"
+            optionLabel="label" optionValue="value" placeholder="Ciudad" icon="location-on-outline-rounded"
+            :error="showErrors ? errors.ciudad : null" />
+
+        <FormTextField id="telefono" label="Teléfono" v-model="form.telefono" icon="phone-iphone-outline"
+            placeholder="Teléfono" :error="showErrors ? errors.telefono : null" />
 
         <FormEmailField id="email" label="Mail" v-model="form.mail" icon="mail-outline-rounded" placeholder="Mail"
             :error="showErrors ? errors.mail : null" />
 
-        <FormSelectField id="ciudad" label="Ciudad" v-model="form.ciudad" :options="ciudadesFormateadas"
-            optionLabel="label" optionValue="value" placeholder="Seleccione una ciudad"
-            icon="location-on-outline-rounded" :error="showErrors ? errors.ciudad : null" />
-
         <FormSelectField id="oficio" label="Oficio" v-model="form.oficio" :options="oficiosFormateados"
-            optionLabel="label" optionValue="value" placeholder="Seleccione un oficio"
+            optionLabel="label" optionValue="value" placeholder="Oficio"
             icon="service-toolbox-outline-rounded" :error="showErrors ? errors.oficio : null" />
 
-        <div class="flex items-start">
-            <div class="flex items-center h-5">
+        <div class="flex items-center mt-1">
+            <div class="relative w-6 h-6 flex items-center justify-center">
                 <input id="terminos" type="checkbox" v-model="form.terminos"
-                    class="w-4 h-4 text-primary border-gray-300 rounded" />
+                    class="w-[18px] h-[18px] border-2 border-primary rounded appearance-none checked:bg-primary cursor-pointer focus:outline-none" />
+                <svg v-if="form.terminos" class="absolute w-3 h-3 pointer-events-none text-white" viewBox="0 0 24 24"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
             </div>
-            <div class="ml-3 text-sm">
-                <FormLabel for="terminos" class="text-gray-700">
-                    Al inscribirme acepto <span class="text-error">bases y condiciones</span>
-                </FormLabel>
+            <div class="ml-1 text-xs">
+                <label for="terminos" class="text-gray cursor-pointer">
+                    Al inscribirme <span class="text-primary">acepto bases y condiciones</span>
+                </label>
                 <DefaultError v-if="showErrors && errors.terminos">{{ errors.terminos }}</DefaultError>
             </div>
         </div>
 
-        <div class="flex justify-center mt-6">
-            <button type="submit" class="px-6 py-2 bg-primar rounded-md hover:bg-primary-dark transition-colors"
-                :disabled="isSubmitting">
-                {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
-            </button>
-        </div>
+        <button type="submit" class="bg-primary rounded-[9px] text-white font-semibold p-3"
+            :disabled="isSubmitting">
+            {{ isSubmitting ? 'REGISTRANDO...' : 'REGISTRARME' }}
+        </button>
     </form>
 </template>
 
@@ -46,16 +55,7 @@ import { useParticipanteValidation } from '~/composables/useParticipanteValidati
 const eventosStore = useEventosKlaukolStore();
 const oficiosStore = useOficiosStore();
 const { prepareParticipanteData, createParticipante } = useParticipanteService();
-const {
-    validateNombre,
-    validateApellido,
-    validateCiudad,
-    validateTelefono,
-    validateMail,
-    validateOficio,
-    validateTerminos,
-    validateForm
-} = useParticipanteValidation();
+const { validateForm } = useParticipanteValidation();
 
 const form = ref({
     nombre: '',
@@ -88,30 +88,6 @@ const ciudadesFormateadas = computed(() =>
         label: ciudad.nombre
     }))
 );
-
-const textFields = [
-    {
-        id: 'nombre',
-        label: 'Nombre',
-        model: 'nombre',
-        icon: 'account-circle',
-        placeholder: 'Nombre'
-    },
-    {
-        id: 'apellido',
-        label: 'Apellido',
-        model: 'apellido',
-        icon: 'account-circle',
-        placeholder: 'Apellido'
-    },
-    {
-        id: 'telefono',
-        label: 'Teléfono',
-        model: 'telefono',
-        icon: 'phone-iphone-outline',
-        placeholder: 'Teléfono'
-    }
-];
 
 const handleSubmit = async () => {
     showErrors.value = true;

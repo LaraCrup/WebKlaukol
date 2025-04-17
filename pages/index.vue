@@ -1,4 +1,5 @@
 <template>
-    <h1 class="text-xl">Index</h1>
-    <FormParticipante />
+    <h1 class="sr-only">Klaukol</h1>
+    <HomeHero />
+    <HomeEvento />
 </template>
