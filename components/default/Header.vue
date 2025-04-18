@@ -1,6 +1,6 @@
 <template>
     <header class="bg-primary py-5 px-4 mb-[2px]">
-        <DefaultContent class="flex justify-between items-center">
+        <DefaultContent class="flex !flex-row justify-between items-center">
             <div class="flex items-center gap-2">
                 <NuxtImg src="/images/Logo-Sika.svg" alt="Logo Sika" class="h-6" />
                 <NuxtImg src="/images/Logo-Klaukol.svg" alt="Logo Klaukol" class="h-6" />

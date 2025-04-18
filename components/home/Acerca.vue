@@ -1,7 +1,7 @@
 <template>
     <DefaultSection>
         <DefaultContent>
-            <NuxtImg src="/images/home/Acerca-Evento-Klaukol-Mobile.png" alt="Acerca del Evento Klaukol"
+            <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.png" alt="Acerca del Evento Klaukol"
                 class="w-full object-cover" />
             <div class="flex flex-col gap-6 p-4">
                 <div class="flex flex-col gap-1">

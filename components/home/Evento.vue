@@ -2,7 +2,7 @@
     <DefaultSection>
         <DefaultContent>
             <!-- Cambiar por video -->
-            <NuxtImg src="/videos/Evento-Klaukol.png" class="w-full" />
+            <NuxtImg src="/videos/evento/Evento-Klaukol-Mobile.png" class="w-full" />
             <div class="p-4">
                 <div class="flex flex-col gap-2 rounded-[18px] shadow-1 p-4">
                     <DefaultH2 class="text-primary">
