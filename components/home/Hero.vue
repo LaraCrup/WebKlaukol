@@ -1,6 +1,6 @@
 <template>
   <DefaultSection>
-    <DefaultContent>
+    <DefaultContent class="!max-w-[1920px]">
       <picture>
         <source media="(min-width: 1440px)" srcset="/images/home/banners/Klaukol-Hero-DesktopXL.png" />
         <source media="(min-width: 1080px)" srcset="/images/home/banners/Klaukol-Hero-Desktop.png" />

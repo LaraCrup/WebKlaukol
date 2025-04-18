@@ -23,7 +23,7 @@
         <div class="flex items-center mt-1">
             <div class="relative w-6 h-6 flex items-center justify-center">
                 <input id="terminos" type="checkbox" v-model="form.terminos"
-                    class="w-[18px] h-[18px] border-2 border-primary rounded appearance-none checked:bg-primary cursor-pointer focus:outline-none" />
+                    class="w-[1.125rem] h-[1.125rem] border-2 border-primary rounded appearance-none checked:bg-primary cursor-pointer focus:outline-none" />
                 <svg v-if="form.terminos" class="absolute w-3 h-3 pointer-events-none text-white" viewBox="0 0 24 24"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"
@@ -31,14 +31,14 @@
                 </svg>
             </div>
             <div class="ml-1">
-                <label for="terminos" class="text-xs lg:text-base text-gray cursor-pointer">
+                <label for="terminos" class="text-xs xl:text-base 2xl:text-xl text-gray cursor-pointer">
                     Al inscribirme <span class="text-primary">acepto bases y condiciones</span>
                 </label>
                 <DefaultError v-if="showErrors && errors.terminos">{{ errors.terminos }}</DefaultError>
             </div>
         </div>
 
-        <button type="submit" class="bg-primary rounded-[9px] text-white md:text-xl font-semibold p-3 mt-2 md:mt-4"
+        <button type="submit" class="bg-primary rounded-[9px] text-white md:text-xl 2xl:text-2xl font-semibold p-3 mt-2 md:mt-4"
             :disabled="isSubmitting">
             {{ isSubmitting ? 'REGISTRANDO...' : 'REGISTRARME' }}
         </button>

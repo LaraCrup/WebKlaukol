@@ -4,7 +4,7 @@
         <div class="relative">
             <input :id="id" type="text" :placeholder="placeholder" :value="modelValue"
                 @input="$emit('update:modelValue', $event.target.value); $emit('input', $event.target.value)"
-                :autocomplete="autocomplete" class="w-full border-2 border-primary rounded-[9px] text-sm xl:text-base outline-none p-[0.65rem] pl-9 placeholder:text-gray placeholder:text-sm xl:placeholder:text-base" />
+                :autocomplete="autocomplete" class="w-full border-2 border-primary rounded-[9px] text-sm xl:text-base 2xl:text-xl outline-none p-[0.65rem] pl-9 2xl:pl-10 placeholder:text-gray placeholder:text-sm xl:placeholder:text-base 2xl:placeholder:text-xl" />
             <div v-if="icon" class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
                 <Icon :name="`material-symbols:${icon}`" size="1.5rem" class="text-gray" />
             </div>

@@ -4,9 +4,9 @@
         <div class="relative">
             <div class="relative">
                 <button type="button" :id="id" @click="toggleDropdown"
-                    class="w-full flex items-center justify-between border-2 border-primary rounded-[9px] outline-none p-[0.65rem] pl-9">
-                    <span v-if="selectedLabel" class="text-sm xl:text-base">{{ selectedLabel }}</span>
-                    <span v-else class="text-gray text-sm xl:text-base">{{ placeholder }}</span>
+                    class="w-full flex items-center justify-between border-2 border-primary rounded-[9px] outline-none p-[0.65rem] pl-9 2xl:pl-10">
+                    <span v-if="selectedLabel" class="text-sm xl:text-base 2xl:text-xl">{{ selectedLabel }}</span>
+                    <span v-else class="text-gray text-sm xl:text-base 2xl:text-xl">{{ placeholder }}</span>
                     <Icon name="material-symbols:keyboard-arrow-down-rounded" size="1.5rem"
                         class="text-primary self-end" />
                 </button>
@@ -17,8 +17,8 @@
                 <div v-if="isOpen"
                     class="w-full absolute z-10 bg-white border-2 border-primary rounded-md shadow-md overflow-auto mt-1">
                     <div v-for="option in options" :key="getOptionValue(option)" @click="selectOption(option)"
-                        class="p-2 hover:text-primary transition-all duration-300 cursor-pointer">
-                        <p class="text-sm xl:text-base">{{ getOptionLabel(option) }}</p>
+                        class="p-2 xl:p-3 hover:text-primary transition-all duration-300 cursor-pointer">
+                        <p class="text-sm xl:text-base 2xl:text-xl">{{ getOptionLabel(option) }}</p>
                     </div>
                 </div>
             </div>
