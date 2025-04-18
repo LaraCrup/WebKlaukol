@@ -10,7 +10,11 @@ export default {
         extend: {
             colors: {
                 primary: "#E73731",
+                secondary: "#811F1B",
+                sikaPrimary: "#FFC510",
+                sikaSecondary: "#99760A",
                 gray: "#616161",
+                lightGray: "#F9F9F9",
             }
         }
     }
