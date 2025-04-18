@@ -2,7 +2,7 @@
     <DefaultSection class="bg-lightGray p-4 md:p-8 xl:p-16 xl:pt-8">
         <DefaultContent class="gap-6 xl:gap-8">
             <div class="flex flex-col gap-1">
-                <DefaultSubtitle class="text-center text-primary">ACERCA DEL EVENTO</DefaultSubtitle>
+                <DefaultSubtitle class="text-center text-primary">UBICACIÓN Y HORARIO</DefaultSubtitle>
                 <DefaultH2 class="text-center">ITINERARIO DEL EVENTO</DefaultH2>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
