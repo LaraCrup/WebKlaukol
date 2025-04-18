@@ -5,9 +5,10 @@
             <div class="relative">
                 <button type="button" :id="id" @click="toggleDropdown"
                     class="w-full flex items-center justify-between border-2 border-primary rounded-[9px] outline-none p-[0.65rem] pl-9">
-                    <span v-if="selectedLabel" class="text-sm">{{ selectedLabel }}</span>
-                    <span v-else class="text-gray text-sm">{{ placeholder }}</span>
-                    <Icon name="material-symbols:keyboard-arrow-down-rounded" size="1.5rem" class="text-primary self-end" />
+                    <span v-if="selectedLabel" class="text-sm xl:text-base">{{ selectedLabel }}</span>
+                    <span v-else class="text-gray text-sm xl:text-base">{{ placeholder }}</span>
+                    <Icon name="material-symbols:keyboard-arrow-down-rounded" size="1.5rem"
+                        class="text-primary self-end" />
                 </button>
                 <div v-if="icon" class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
                     <Icon :name="`material-symbols:${icon}`" size="1.5rem" class="text-gray" />
@@ -17,7 +18,7 @@
                     class="w-full absolute z-10 bg-white border-2 border-primary rounded-md shadow-md overflow-auto mt-1">
                     <div v-for="option in options" :key="getOptionValue(option)" @click="selectOption(option)"
                         class="p-2 hover:text-primary transition-all duration-300 cursor-pointer">
-                        {{ getOptionLabel(option) }}
+                        <p class="text-sm xl:text-base">{{ getOptionLabel(option) }}</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-full h-[450px] rounded-lg overflow-hidden shadow-md">
+    <div class="relative w-full h-[450px] rounded-xl overflow-hidden shadow-md">
         <div ref="mapContainer" class="w-full h-full"></div>
 
         <div class="flex gap-2 absolute bottom-0 left-0 right-0 z-10 overflow-x-scroll p-4">
@@ -13,7 +13,7 @@
 
         <div v-if="mapError" class="absolute inset-0 flex items-center justify-center bg-gray-100">
             <div class="text-center p-4">
-                <p class="text-lg text-gray-700 mb-2">No se pudo cargar el mapa</p>
+                <p class="text-xl text-gray-700 mb-2">No se pudo cargar el mapa</p>
                 <p class="text-sm text-gray-500">Por favor, intente más tarde</p>
             </div>
         </div>

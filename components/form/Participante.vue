@@ -30,8 +30,8 @@
                         stroke-linejoin="round" />
                 </svg>
             </div>
-            <div class="ml-1 text-xs">
-                <label for="terminos" class="text-gray cursor-pointer">
+            <div class="ml-1">
+                <label for="terminos" class="text-xs lg:text-base text-gray cursor-pointer">
                     Al inscribirme <span class="text-primary">acepto bases y condiciones</span>
                 </label>
                 <DefaultError v-if="showErrors && errors.terminos">{{ errors.terminos }}</DefaultError>
