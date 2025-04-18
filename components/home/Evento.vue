@@ -10,7 +10,7 @@
                     class="w-full h-full object-cover" />
             </picture>
             <div class="md:w-1/2 p-4 md:px-8 xl:p-8 xl:pr-16">
-                <div class="flex flex-col gap-2 xl:gap-3 rounded-[1.125rem] shadow-1 p-4 xl:p-6">
+                <div class="flex flex-col gap-2 xl:gap-3 bg-lightGray rounded-[1.125rem] shadow-1 p-4 xl:p-6">
                     <DefaultH2 class="text-primary">
                         REGISTRATE PARA PARTICIPAR DE ESTE EVENTO ÚNICO
                     </DefaultH2>
