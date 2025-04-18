@@ -27,7 +27,6 @@ const socialMedia = [
     },
     {
         name: 'YouTube',
-        icon: 'material-symbols:youtube',
         url: '#'
     },
 ]
