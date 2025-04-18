@@ -1,14 +1,14 @@
 <template>
-    <header class="bg-primary py-5 px-4 mb-[2px]">
+    <header class="bg-primary py-5 px-4 md:py-[1.125rem] md:px-8 mb-[2px]">
         <DefaultContent class="flex !flex-row justify-between items-center">
-            <div class="flex items-center gap-2">
-                <NuxtImg src="/images/Logo-Sika.svg" alt="Logo Sika" class="h-6" />
-                <NuxtImg src="/images/Logo-Klaukol.svg" alt="Logo Klaukol" class="h-6" />
+            <div class="flex items-center gap-2 md:gap-6">
+                <NuxtImg src="/images/Logo-Sika.svg" alt="Logo Sika" class="h-6 md:h-16" />
+                <NuxtImg src="/images/Logo-Klaukol.svg" alt="Logo Klaukol" class="h-6 md:h-12" />
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 md:gap-3">
                 <NuxtLink v-for="(social, index) in socialMedia" :key="index" :to="social.url" target="_blank"
                     class="text-white hover:text-gray-300 transition-colors">
-                    <NuxtImg :src="`/images/social/${social.name}-Logo.svg`" :alt="social.name" class="h-6" />
+                    <NuxtImg :src="`/images/social/${social.name}-Logo.svg`" :alt="social.name" class="h-6 md:h-9" />
                 </NuxtLink>
             </div>
         </DefaultContent>

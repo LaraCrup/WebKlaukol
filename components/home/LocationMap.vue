@@ -1,8 +1,6 @@
 <template>
     <div class="relative w-full h-[450px] rounded-lg overflow-hidden shadow-md">
-        <iframe :src="currentMapUrl" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer"
-            allow="fullscreen">
-        </iframe>
+        <div ref="mapContainer" class="w-full h-full"></div>
 
         <div class="flex gap-2 absolute bottom-0 left-0 right-0 z-10 overflow-x-scroll p-4">
             <button v-for="(evento, index) in eventos" :key="index" :class="[
@@ -12,13 +10,21 @@
                 {{ evento.nombre_ciudad }}
             </button>
         </div>
+
+        <div v-if="mapError" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div class="text-center p-4">
+                <p class="text-lg text-gray-700 mb-2">No se pudo cargar el mapa</p>
+                <p class="text-sm text-gray-500">Por favor, intente más tarde</p>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 
-// Props: esperamos recibir el array de eventos
+const GOOGLE_MAPS_API_KEY = process.env.NUXT_PUBLIC_GOOGLE_MAPS_API_KEY
+
 const props = defineProps({
     eventos: {
         type: Array,
@@ -26,40 +32,131 @@ const props = defineProps({
     }
 })
 
-// Estado para el evento seleccionado
+const mapContainer = ref(null)
+let map = null
+let markers = []
+const mapError = ref(false)
+
 const selectedEventoIndex = ref(0)
 
-// Evento actual basado en el índice seleccionado
 const currentEvento = computed(() => {
     return props.eventos[selectedEventoIndex.value] || null
 })
 
-// URLs pregeneradas para cada ubicación
-// Estas URLs las debes obtener manualmente desde Google Maps para cada ubicación
-const mapUrls = [
-    // Rosario
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107140.87318811822!2d-60.752453499999996!3d-32.95444975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b6539335d7d75b%3A0xec4086e90e7ed8c3!2sRosario%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1718748906831!5m2!1ses-419!2sar",
-    // Villa María
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54076.77559107538!2d-63.29069465!3d-32.40762735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cc42fb51306dc1%3A0xbfb3fffbd425c6a1!2sVilla%20Mar%C3%ADa%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1718748984598!5m2!1ses-419!2sar",
-    // Adrogué
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26239.65905544236!2d-58.42023285!3d-34.79964605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd2dc8585ad6f%3A0xd8f4d7432149ccbe!2sAdrogu%C3%A9%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1718749019639!5m2!1ses-419!2sar",
-    // Mendoza Capital
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107152.32201866835!2d-68.93550675!3d-32.88959195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e093ec45179bf%3A0x205a78f6d20efa3a!2sMendoza!5e0!3m2!1ses-419!2sar!4v1718749063087!5m2!1ses-419!2sar",
-    // Chaco Capital
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113927.11060182651!2d-59.06034175!3d-27.446284500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450c7dfb8419b5%3A0x68ef660420a17081!2sResistencia%2C%20Chaco!5e0!3m2!1ses-419!2sar!4v1718749092542!5m2!1ses-419!2sar",
-    // C.A.B.A
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.44367018693!2d-58.503338949999995!3d-34.61566245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses-419!2sar!4v1718749123262!5m2!1ses-419!2sar"
+const coordenadas = [
+    { lat: -32.9442, lng: -60.6505 }, // Rosario
+    { lat: -32.4077, lng: -63.2481 }, // Villa Maria 
+    { lat: -34.7987, lng: -58.3939 }, // Adrogué
+    { lat: -32.8894, lng: -68.8458 }, // Mendoza
+    { lat: -27.4513, lng: -58.9863 }, // Resistencia (Chaco)
+    { lat: -34.6037, lng: -58.3816 }  // CABA
 ]
 
-// URL del mapa basado en el evento seleccionado
-const currentMapUrl = computed(() => {
-    return mapUrls[selectedEventoIndex.value] || mapUrls[0]
-})
+const loadGoogleMapsApi = () => {
+    return new Promise((resolve, reject) => {
+        if (window.google && window.google.maps) {
+            return resolve(window.google.maps)
+        }
 
-// Función para seleccionar un evento
+        // Creamos un script con async
+        const script = document.createElement('script')
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&v=weekly`
+        script.async = true
+
+        script.onload = () => resolve(window.google.maps)
+        script.onerror = (error) => {
+            console.error('Error al cargar Google Maps:', error)
+            mapError.value = true
+            reject(error)
+        }
+
+        document.head.appendChild(script)
+    })
+}
+
+const initMap = async () => {
+    try {
+        const googleMaps = await loadGoogleMapsApi()
+
+        // Crear mapa
+        map = new googleMaps.Map(mapContainer.value, {
+            center: coordenadas[selectedEventoIndex.value],
+            zoom: 15,
+            mapTypeControl: false,
+            fullscreenControl: true,
+            streetViewControl: true,
+            zoomControl: true,
+        })
+
+        createMarkers(googleMaps)
+
+        updateMapView()
+
+    } catch (error) {
+        console.error('Error al inicializar el mapa:', error)
+        mapError.value = true
+    }
+}
+
+const createMarkers = (googleMaps) => {
+    markers.forEach(marker => marker.setMap(null))
+    markers = []
+
+    props.eventos.forEach((evento, index) => {
+        if (coordenadas[index]) {
+            const marker = new googleMaps.Marker({
+                position: coordenadas[index],
+                map: null, // Inicialmente no visible
+                title: evento.nombre_ciudad,
+                animation: googleMaps.Animation.DROP
+            })
+
+            markers.push(marker)
+        }
+    })
+}
+
+const updateMapView = () => {
+    if (!map || markers.length === 0) return
+
+    markers.forEach(marker => marker.setMap(null))
+
+    if (markers[selectedEventoIndex.value]) {
+        markers[selectedEventoIndex.value].setMap(map)
+
+        map.setCenter(coordenadas[selectedEventoIndex.value])
+
+        map.setZoom(15)
+    }
+}
+
 const selectEvento = (index) => {
     if (index >= 0 && index < props.eventos.length) {
         selectedEventoIndex.value = index
     }
 }
+
+watch(selectedEventoIndex, () => {
+    updateMapView()
+})
+
+const handleResize = () => {
+    if (map) {
+        map.setCenter(coordenadas[selectedEventoIndex.value])
+    }
+}
+
+onMounted(() => {
+    initMap()
+    window.addEventListener('resize', handleResize)
+})
+
+onBeforeUnmount(() => {
+    if (markers.length) {
+        markers.forEach(marker => marker.setMap(null))
+        markers = []
+    }
+    map = null
+    window.removeEventListener('resize', handleResize)
+})
 </script>

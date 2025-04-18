@@ -1,8 +1,12 @@
 <template>
-    <DefaultSection>
-        <DefaultContent>
-            <NuxtImg src="/images/home/banners/Klaukol-Hero-Mobile.png" alt="Klaukol Hero Mobile"
-                class="w-full object-cover" />
-        </DefaultContent>
-    </DefaultSection>
+  <DefaultSection>
+    <DefaultContent>
+      <picture>
+        <source media="(min-width: 1440px)" srcset="/images/home/banners/Klaukol-Hero-DesktopXL.png" />
+        <source media="(min-width: 1080px)" srcset="/images/home/banners/Klaukol-Hero-Desktop.png" />
+        <source media="(min-width: 660px)" srcset="/images/home/banners/Klaukol-Hero-Tablet.png" />
+        <NuxtImg src="/images/home/banners/Klaukol-Hero-Mobile.png" alt="Klaukol Hero" class="w-full object-cover" />
+      </picture>
+    </DefaultContent>
+  </DefaultSection>
 </template>

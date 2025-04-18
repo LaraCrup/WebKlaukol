@@ -1,17 +1,24 @@
 <template>
     <DefaultSection>
-        <DefaultContent>
-            <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.png" alt="Acerca del Evento Klaukol"
-                class="w-full object-cover" />
-            <div class="flex flex-col gap-6 p-4">
+        <DefaultContent class="md:flex-row-reverse">
+            <picture class="md:w-1/2">
+                <source media="(min-width: 1440px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-DesktopXL.png" />
+                <source media="(min-width: 1080px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Desktop.png" />
+                <source media="(min-width: 660px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Tablet.png" />
+                <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.png" alt="Klaukol Hero"
+                    class="w-full h-full object-cover" />
+            </picture>
+            <div class="md:w-1/2 flex flex-col gap-6 p-4 md:pl-8">
                 <div class="flex flex-col gap-1">
-                    <p class="font-medium">ACERCA DEL EVENTO</p>
+                    <DefaultSubtitle>
+                        ACERCA DEL EVENTO
+                    </DefaultSubtitle>
                     <DefaultH2 class="text-primary">EN BUSCA DEL COLOCADOR KLAUKOL</DefaultH2>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <div v-for="(actividad, index) in actividades" :key="index" class="flex flex-col gap-2">
-                        <Icon :name="`material-symbols:${actividad.icon}`" class="w-9 h-9 text-primary" />
-                        <div>
+                    <div v-for="(actividad, index) in actividades" :key="index" class="flex flex-col md:flex-row gap-2 md:gap-4">
+                        <Icon :name="`material-symbols:${actividad.icon}`" class="w-9 md:w-9 h-9 md:h-9 text-primary" />
+                        <div class="w-full">
                             <p class="font-semibold text-sm">{{ actividad.title }}</p>
                             <p class="text-xs">{{ actividad.description }}</p>
                         </div>

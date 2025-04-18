@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <button type="submit" class="bg-primary rounded-[9px] text-white font-semibold p-3"
+        <button type="submit" class="bg-primary rounded-[9px] text-white md:text-xl font-semibold p-3 mt-2 md:mt-4"
             :disabled="isSubmitting">
             {{ isSubmitting ? 'REGISTRANDO...' : 'REGISTRARME' }}
         </button>
