@@ -6,7 +6,7 @@
                 <source media="(min-width: 1440px)" srcset="/videos/evento/Evento-Klaukol-DesktopXL.png" />
                 <source media="(min-width: 1080px)" srcset="/videos/evento/Evento-Klaukol-Desktop.png" />
                 <source media="(min-width: 660px)" srcset="/videos/evento/Evento-Klaukol-Tablet.png" />
-                <NuxtImg src="/videos/evento/Evento-Klaukol-Mobile.png" alt="Klaukol Hero"
+                <NuxtImg src="/videos/evento/Evento-Klaukol-Mobile.png" alt="Evento Klaukol"
                     class="w-full h-full object-cover" />
             </picture>
             <div class="md:w-1/2 p-4 md:px-8 xl:p-8 xl:pr-16">

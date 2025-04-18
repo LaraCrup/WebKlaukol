@@ -5,7 +5,7 @@
                 <source media="(min-width: 1440px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-DesktopXL.png" />
                 <source media="(min-width: 1080px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Desktop.png" />
                 <source media="(min-width: 660px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Tablet.png" />
-                <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.png" alt="Klaukol Hero"
+                <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.png" alt="Acerca del Evento Klaukol"
                     class="w-full h-full object-cover" />
             </picture>
             <div class="md:w-1/2 flex flex-col gap-6 p-4 md:pl-8 xl:p-8">
