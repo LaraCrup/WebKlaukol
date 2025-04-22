@@ -19,11 +19,11 @@
 const socialMedia = [
     {
         name: 'Facebook',
-        url: '#'
+        url: 'https://www.facebook.com/reveararg'
     },
     {
         name: 'Instagram',
-        url: '#'
+        url: 'https://www.instagram.com/reveararg/'
     },
     {
         name: 'YouTube',
