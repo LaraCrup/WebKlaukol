@@ -19,11 +19,11 @@
 const socialMedia = [
     {
         name: 'Facebook',
-        url: 'https://www.facebook.com/reveararg'
+        url: 'https://www.facebook.com/KlaukolOficial'
     },
     {
         name: 'Instagram',
-        url: 'https://www.instagram.com/reveararg/'
+        url: 'https://www.instagram.com/klaukoloficial/'
     },
     {
         name: 'YouTube',
