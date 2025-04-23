@@ -25,9 +25,5 @@ const socialMedia = [
         name: 'Instagram',
         url: 'https://www.instagram.com/klaukoloficial/'
     },
-    {
-        name: 'YouTube',
-        url: '#'
-    },
 ]
 </script>
