@@ -10,6 +10,7 @@ export default {
         extend: {
             colors: {
                 primary: "#E73731",
+                primaryHover: "#E73731BF",
                 secondary: "#811F1B",
                 sikaPrimary: "#FFC510",
                 sikaSecondary: "#99760A",

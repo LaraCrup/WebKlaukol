@@ -17,8 +17,8 @@
             :error="showErrors ? errors.mail : null" />
 
         <FormSelectField id="oficio" label="Oficio" v-model="form.oficio" :options="oficiosFormateados"
-            optionLabel="label" optionValue="value" placeholder="Oficio"
-            icon="service-toolbox-outline-rounded" :error="showErrors ? errors.oficio : null" />
+            optionLabel="label" optionValue="value" placeholder="Oficio" icon="service-toolbox-outline-rounded"
+            :error="showErrors ? errors.oficio : null" />
 
         <div class="flex items-center mt-1">
             <div class="relative w-6 h-6 flex items-center justify-center">
@@ -38,15 +38,17 @@
             </div>
         </div>
 
-        <button type="submit" class="bg-primary rounded-[9px] text-white md:text-xl 2xl:text-2xl font-semibold p-3 mt-2 md:mt-4"
+        <button type="submit"
+            class="bg-primary rounded-[9px] text-white md:text-xl 2xl:text-2xl font-semibold p-3 mt-2 md:mt-4"
             :disabled="isSubmitting">
             {{ isSubmitting ? 'REGISTRANDO...' : 'REGISTRARME' }}
         </button>
     </form>
+
+    <FormConfirmation :visible="modalVisible" @close="modalVisible = false" />
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
 import { useEventosKlaukolStore } from '~/store/eventosKlaukol';
 import { useOficiosStore } from '~/store/oficios';
 import { useParticipanteService } from '~/composables/useParticipanteService';
@@ -80,6 +82,8 @@ const errors = ref({
 const isSubmitting = ref(false);
 const showErrors = ref(false);
 
+const modalVisible = ref(false);
+
 const oficiosFormateados = computed(() => oficiosStore.oficiosParaSelect);
 
 const ciudadesFormateadas = computed(() =>
@@ -109,6 +113,8 @@ const handleSubmit = async () => {
                 terminos: false
             };
             showErrors.value = false;
+
+            modalVisible.value = true;
         }
     } catch (error) {
         console.error('Error al enviar el formulario:', error);
