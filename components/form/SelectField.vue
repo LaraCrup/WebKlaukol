@@ -4,7 +4,7 @@
         <div class="relative">
             <div class="relative">
                 <button type="button" :id="id" @click="toggleDropdown"
-                    class="w-full flex items-center justify-between border-2 border-primary rounded-[9px] outline-none p-[0.65rem] pl-9 2xl:pl-10">
+                    class="w-full flex items-center justify-between bg-white border-2 border-primary rounded-[9px] outline-none p-[0.65rem] pl-9 2xl:pl-10">
                     <span v-if="selectedLabel" class="text-sm xl:text-base 2xl:text-xl">{{ selectedLabel }}</span>
                     <span v-else class="text-gray text-sm xl:text-base 2xl:text-xl">{{ placeholder }}</span>
                     <Icon name="material-symbols:keyboard-arrow-down-rounded" size="1.5rem"

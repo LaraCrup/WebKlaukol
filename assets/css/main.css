@@ -12,7 +12,6 @@ main {
 }
 
 body {
-    height: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -20,28 +19,3 @@ body {
 .shadow-1 {
     box-shadow: 0px 2px 2px 0px #00000040;
 }
-
-/* .overflow-x-scroll::-webkit-scrollbar {
-    height: 6px;
-}
-
-.overflow-x-scroll::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
-
-.overflow-x-scroll::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 10px;
-}
-
-.overflow-x-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.8);
-}
-*/
-
-/* Para Firefox 
-.overflow-x-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.6) rgba(255, 255, 255, 0.2);
-} */

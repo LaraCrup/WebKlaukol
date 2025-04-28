@@ -1,6 +1,6 @@
 <template>
     <DefaultSection>
-        <DefaultContent class="md:flex-row">
+        <DefaultContent class="md:max-h-[700px] lg:max-h-[640px] xl:max-h-[720px] 2xl:max-h-[850px] md:flex-row">
             <!-- Cambiar por video -->
             <picture class="md:w-1/2">
                 <source media="(min-width: 1440px)" srcset="/videos/evento/Evento-Klaukol-DesktopXL.png" />
@@ -9,7 +9,7 @@
                 <NuxtImg src="/videos/evento/Evento-Klaukol-Mobile.png" alt="Evento Klaukol"
                     class="w-full h-full object-cover" />
             </picture>
-            <div class="md:w-1/2 p-4 md:px-8 xl:p-8 xl:pr-16">
+            <div class="md:w-1/2 flex justify-center items-center p-4 md:px-8 xl:p-8 xl:pr-16">
                 <div class="flex flex-col gap-2 xl:gap-3 bg-lightGray rounded-[1.125rem] shadow-1 p-4 xl:p-6">
                     <DefaultH2 class="text-primary">
                         REGISTRATE PARA PARTICIPAR DE ESTE EVENTO ÚNICO
