@@ -2,10 +2,10 @@
     <DefaultSection>
         <DefaultContent class="md:max-h-[460px] xl:max-h-[510px] 2xl:max-h-[600px] md:flex-row-reverse">
             <picture class="md:w-1/2">
-                <source media="(min-width: 1440px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-DesktopXL.png" />
-                <source media="(min-width: 1080px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Desktop.png" />
-                <source media="(min-width: 660px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Tablet.png" />
-                <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.png" alt="Acerca del Evento Klaukol"
+                <source media="(min-width: 1440px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-DesktopXL.webp" />
+                <source media="(min-width: 1080px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Desktop.webp" />
+                <source media="(min-width: 660px)" srcset="/images/home/acerca/Acerca-Evento-Klaukol-Tablet.webp" />
+                <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.webp" alt="Acerca del Evento Klaukol"
                     class="w-full h-full object-cover" />
             </picture>
             <div class="md:w-1/2 flex flex-col justify-center items-center gap-6 p-4 md:pl-8 xl:p-8">
