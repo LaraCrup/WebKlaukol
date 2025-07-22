@@ -1,6 +1,6 @@
 <template>
     <DefaultSection>
-        <DefaultContent class="md:max-h-[700px] lg:max-h-[640px] xl:max-h-[720px] 2xl:max-h-[850px] md:flex-row">
+        <DefaultContent class="md:max-h-[860px] lg:max-h-[780px] xl:max-h-full md:flex-row">
             <!-- Cambiar por video -->
             <picture class="md:w-1/2">
                 <source media="(min-width: 1440px)" srcset="/videos/evento/Evento-Klaukol-DesktopXL.png" />

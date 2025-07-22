@@ -20,7 +20,7 @@
             optionLabel="label" optionValue="value" placeholder="Oficio" icon="service-toolbox-outline-rounded"
             :error="showErrors ? errors.oficio : null" />
 
-        <div class="flex items-center mt-1">
+        <div class="flex mt-1">
             <div class="relative w-6 h-6 flex items-center justify-center">
                 <input id="terminos" type="checkbox" v-model="form.terminos"
                     class="w-[1.125rem] h-[1.125rem] border-2 border-primary rounded appearance-none checked:bg-primary cursor-pointer focus:outline-none" />
@@ -34,7 +34,9 @@
                 <label for="terminos" class="text-xs xl:text-base 2xl:text-xl text-gray cursor-pointer">
                     Al inscribirme <span class="text-primary">acepto bases y condiciones</span>
                 </label>
-                <DefaultError v-if="showErrors && errors.terminos">{{ errors.terminos }}</DefaultError>
+                <div class="lg:min-h-4">
+                    <DefaultError v-if="showErrors && errors.terminos">{{ errors.terminos }}</DefaultError>
+                </div>
             </div>
         </div>
 

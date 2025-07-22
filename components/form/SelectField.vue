@@ -23,9 +23,11 @@
                 </div>
             </div>
         </div>
-        <DefaultError v-if="error">
-            {{ error }}
-        </DefaultError>
+        <div class="lg:min-h-4">
+            <DefaultError v-if="error">
+                {{ error }}
+            </DefaultError>
+        </div>
     </div>
 </template>
 
