@@ -8,15 +8,15 @@
                 <NuxtImg src="/images/home/acerca/Acerca-Evento-Klaukol-Mobile.webp" alt="Acerca del Evento Klaukol"
                     class="w-full h-full object-cover" />
             </picture>
-            <div class="md:w-1/2 flex flex-col justify-center items-center gap-6 p-4 md:pl-8 xl:p-8">
-                <div class="max-w-[444px] 2xl:max-w-[550px] flex flex-col gap-1 2xl:gap-2">
+            <div class="md:w-1/2 flex flex-col justify-center items-center xl:items-start gap-6 p-4 md:pl-8 xl:p-8 xl:pl-16">
+                <div class="max-w-[444px] xl:max-w-full flex flex-col gap-1 2xl:gap-2">
                     <DefaultSubtitle>
                         ACERCA DEL EVENTO
                     </DefaultSubtitle>
                     <DefaultH2 class="text-primary">EN BUSCA DEL COLOCADOR KLAUKOL</DefaultH2>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <div v-for="(actividad, index) in actividades" :key="index" class="max-w-[444px] 2xl:max-w-[550px] flex flex-col md:flex-row gap-2 md:gap-4 xl:gap-6">
+                <div class="flex flex-col gap-3 2xl:gap-6">
+                    <div v-for="(actividad, index) in actividades" :key="index" class="max-w-[444px] xl:max-w-full flex flex-col md:flex-row gap-2 md:gap-4 xl:gap-6">
                         <Icon :name="`material-symbols:${actividad.icon}`" class="w-9 md:w-9 xl:w-12 h-9 md:h-9 xl:h-12 text-primary" />
                         <div class="w-full">
                             <p class="font-semibold text-sm xl:text-base 2xl:text-xl">{{ actividad.title }}</p>
