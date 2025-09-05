@@ -1,3 +1,18 @@
 User-agent: *
-Disallow:
-sitemap: https://en-busca-del-colocador-klaukol.com.ar/sitemap.xml
+Allow: /
+Crawl-delay: 1
+
+# Bloquear directorios sensibles
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /logs/
+Disallow: /temp/
+Disallow: /cache/
+
+# Sitemap
+Sitemap: https://en-busca-del-colocador-klaukol.com.ar/sitemap.xml
+
+# Información del sitio
+# Sitio web: https://en-busca-del-colocador-klaukol.com.ar/
+# Descripción: Evento Klaukol - En busca del colocador

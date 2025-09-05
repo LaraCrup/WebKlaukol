@@ -7,7 +7,7 @@
             </div>
             <div class="flex items-center gap-2 md:gap-3">
                 <NuxtLink v-for="(social, index) in socialMedia" :key="index" :to="social.url" target="_blank"
-                    class="text-white hover:text-gray-300 transition-colors">
+                    rel="noopener noreferrer" class="text-white hover:text-gray-300 transition-colors">
                     <NuxtImg :src="`/images/social/${social.name}-Logo.svg`" :alt="social.name" class="h-6 md:h-9" />
                 </NuxtLink>
             </div>

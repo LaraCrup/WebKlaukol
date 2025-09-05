@@ -32,7 +32,7 @@
             </div>
             <div class="ml-1">
                 <label for="terminos" class="text-xs xl:text-base 2xl:text-xl text-gray cursor-pointer">
-                    Al inscribirme <span class="text-primary">acepto bases y condiciones</span>
+                    Al inscribirme acepto los <a href="/terminos-y-condiciones" target="_blank" rel="noopener noreferrer" class="text-primary underline">términos y condiciones</a> y la <a href="/politica-de-privacidad" target="_blank" rel="noopener noreferrer" class="text-primary underline">política de privacidad</a>
                 </label>
                 <div class="lg:min-h-4">
                     <DefaultError v-if="showErrors && errors.terminos">{{ errors.terminos }}</DefaultError>

@@ -58,10 +58,12 @@ const loadGoogleMapsApi = () => {
             return resolve(window.google.maps)
         }
 
-        // Creamos un script con async
+        // Creamos un script con async y crossorigin para mayor seguridad
         const script = document.createElement('script')
         script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&v=weekly`
         script.async = true
+        script.crossOrigin = 'anonymous'
+        script.referrerPolicy = 'no-referrer-when-downgrade'
 
         script.onload = () => resolve(window.google.maps)
         script.onerror = (error) => {
