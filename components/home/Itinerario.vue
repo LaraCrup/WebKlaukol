@@ -12,9 +12,10 @@
                         <span>-</span>
                         <p class="text-sm xl:text-base 2xl:text-xl">{{ evento.nombre_ciudad }}</p>
                     </div>
-                    <div class="h-[102px] xl:h-[108px] flex flex-col justify-between jus gap-3 py-3 px-4">
+                    <div class="h-fit min-h-24 flex flex-col justify-between jus gap-3 py-3 px-4">
+                        <p class="text-xs font-semibold xl:text-sm 2xl:text-base">{{ evento.lugar }}</p>
                         <p class="text-xs xl:text-sm 2xl:text-base">{{ evento.direccion }}</p>
-                        <div class="flex items-center gap-3">
+                        <div v-if="evento.fecha !== '' || evento.horario !== ''" class="flex items-center gap-3">
                             <div class="flex items-center gap-1">
                                 <Icon name="material-symbols:calendar-month-outline" size="1.5rem" class="text-primary" />
                                 <p class="text-xs xl:text-sm 2xl:text-base">{{ evento.fecha }}</p>
@@ -37,23 +38,26 @@ const eventos = [
     {
         nombre_provincia: "MISIONES",
         nombre_ciudad: "POSADAS",
-        direccion: "ZZZZZZZZZZZZZZZZZZZ",
+        lugar: "Salon Club Iprodha",
+        direccion: "Av. Corrientes 2540",
         fecha: "23 de Septiembre",
-        horario: "ZZ:ZZ"
+        horario: "18:30"
     },
     {
         nombre_provincia: "CORRIENTES",
-        nombre_ciudad: "ZZZZZZ",
-        direccion: "ZZZZZZZZZZZZZZZZZZ",
+        nombre_ciudad: "CORRIENTES",
+        lugar: "Club San Martin",
+        direccion: "Salta 1357",
         fecha: "25 de Septiembre",
-        horario: "ZZ:ZZ"
+        horario: "18:30"
     },
     {
         nombre_provincia: "BUENOS AIRES",
         nombre_ciudad: "BAHÍA BLANCA",
-        direccion: "ZZZZZZZZZZZZZZ.",
-        fecha: "16 de Octubre",
-        horario: "ZZ:ZZ"
+        lugar: "FECHA A CONFIRMAR",
+        direccion: "",
+        fecha: "",
+        horario: ""
     },
 ];
 </script>
