@@ -15,7 +15,7 @@
                 </div>
 
                 <div v-if="isOpen"
-                    class="w-full flex flex-col gap- absolute z-10 bg-white border-2 border-primary rounded-md shadow-md overflow-auto mt-1 p-2">
+                    class="w-full flex flex-col gap- absolute z-10 bg-white border-2 border-primary rounded-md shadow-md overflow-y-scroll max-h-48 mt-1 p-2">
                     <div v-for="option in options" :key="getOptionValue(option)" @click="selectOption(option)"
                         class="rounded-[3px] p-1 xl:px-3 hover:bg-primaryHover hover:text-white transition-all duration-300 cursor-pointer">
                         <p class="text-sm xl:text-base 2xl:text-xl">{{ getOptionLabel(option) }}</p>
