@@ -46,12 +46,25 @@ export default defineNuxtConfig({
       collections: ['material-symbols'],
     }
   },
+  
+  // SEO Configuration
+  app: {
+    head: {
+      meta: [
+        { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+      ]
+    }
+  },
+  
+
+
   // App
   site: {
     url: 'https://en-busca-del-colocador-klaukol.com.ar/',
     name: 'Klaukol',
     description: 'Klaukol',
     defaultLocale: 'es',
+    indexable: true,
   },
   booster: {
     detection: {

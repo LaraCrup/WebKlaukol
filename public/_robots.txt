@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Crawl-delay: 1
 
 # Bloquear directorios sensibles
 Disallow: /admin/
