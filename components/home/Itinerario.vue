@@ -38,10 +38,10 @@ const eventos = [
     {
         nombre_provincia: "MISIONES",
         nombre_ciudad: "POSADAS",
-        lugar: "Salon Club Iprodha",
+        lugar: "Asociación Alemana de Cultura y Deportes",
         direccion: "Av. Corrientes 2540",
         fecha: "23 de Septiembre",
-        horario: "18:30"
+        horario: "19:30"
     },
     {
         nombre_provincia: "CORRIENTES",
@@ -49,7 +49,7 @@ const eventos = [
         lugar: "Club San Martin",
         direccion: "Salta 1357",
         fecha: "25 de Septiembre",
-        horario: "18:30"
+        horario: "19:30"
     },
     {
         nombre_provincia: "BUENOS AIRES",
