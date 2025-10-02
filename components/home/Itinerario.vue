@@ -54,10 +54,10 @@ const eventos = [
     {
         nombre_provincia: "BUENOS AIRES",
         nombre_ciudad: "BAHÍA BLANCA",
-        lugar: "FECHA A CONFIRMAR",
-        direccion: "",
-        fecha: "",
-        horario: ""
+        lugar: "Club Naposta",
+        direccion: "Av. Leandro Niceforo Alem 320",
+        fecha: "4 de Noviembre",
+        horario: "18:30"
     },
 ];
 </script>

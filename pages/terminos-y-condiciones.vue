@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <strong>2.</strong> En el marco del Concurso se llevarán a cabo dos (2) eventos que tendrán lugar en las ciudades de: i) Misiones, Posadas, ii) Corrientes, Corrientes, (el "Territorio") los días 23 de septiembre de 2025, y 25 de septiembre de 2025, ("Evento/s Local/es"). La dirección del predio y el horario en el que se llevará a cabo cada Evento serán informados a los Participantes a través del sitio web https://www.en-busca-del-colocador-klaukol-com-ar.
+                    <strong>2.</strong> En el marco del Concurso se llevarán a cabo tres (3) eventos que tendrán lugar en las ciudades de: i) Misiones, Posadas, ii) Corrientes, Corrientes, iii) Bahía Blanca, Buenos Aires (el "Territorio") los días 23 de septiembre de 2025, 25 de septiembre de 2025, y 04 de noviembre 2025 ("Evento/s Local/es"). La dirección del predio y el horario en el que se llevará a cabo cada Evento serán informados a los Participantes a través del sitio web https://www.en-busca-del-colocador-klaukol-com-ar.
                 </div>
 
                 <div class="mb-6">
