@@ -1,13 +1,22 @@
 User-agent: *
 Allow: /
 
-# Bloquear directorios sensibles
+# Bloquear directorios sensibles y posibles puntos de ataque
 Disallow: /admin/
 Disallow: /api/
 Disallow: /.well-known/
 Disallow: /logs/
 Disallow: /temp/
 Disallow: /cache/
+Disallow: /info/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wordpress/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.nuxt/
+Disallow: /.output/
 
 # Sitemap
 Sitemap: https://en-busca-del-colocador-klaukol.com.ar/sitemap.xml
