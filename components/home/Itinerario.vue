@@ -56,7 +56,7 @@ const eventos = [
         nombre_ciudad: "BAHÍA BLANCA",
         lugar: "Club Naposta",
         direccion: "Av. Leandro Niceforo Alem 320",
-        fecha: "4 de Noviembre",
+        fecha: "5 de Noviembre",
         horario: "18:30"
     },
 ];
